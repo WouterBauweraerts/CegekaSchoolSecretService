@@ -22,21 +22,21 @@ public class PersonServiceTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @InjectMocks
-    private PersonService userService;
+    private PersonService personService;
 
     @Mock
-    private PersonRepository userRepository;
+    private PersonRepository personRepository;
 
     @Before
     public void setUp() throws Exception {
-        ReflectionTestUtils.setField(userService, "counter", new AtomicLong(4l));
+        ReflectionTestUtils.setField(personService, "counter", new AtomicLong(4l));
     }
 
     @Test
     public void addUser_ShouldCallUserRepository() throws Exception {
-        userService.addUser("Seppe","Gielen");
+        personService.addUser("Seppe","Gielen");
 
-        verify(userRepository).addUser(new Person(5l, "Seppe","Gielen"));
+        verify(personRepository).addUser(new Person(5l, "Seppe","Gielen"));
     }
 
     @Test
@@ -45,8 +45,8 @@ public class PersonServiceTest {
         Person person2 = new Person(2l, "Sanne","Gielen");
         Person person3 = new Person(3l, "Xan","Gielen");
 
-        when(userRepository.getAllUsers()).thenReturn(Arrays.asList(person1, person2));
+        when(personRepository.getAllUsers()).thenReturn(Arrays.asList(person1, person2));
 
-        assertThat(userService.getAllUsers()).containsOnly(person1, person2);
+        assertThat(personService.getAllUsers()).containsOnly(person1, person2);
     }
 }
