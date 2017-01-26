@@ -11,7 +11,7 @@ public class SecretTest {
 
     @Before
     public void setUp() throws Exception {
-        secret = new Secret("SECRET!!!!", "HASH!!!!");
+        secret = new Secret(4L,"SECRET!!!!", "HASH!!!!");
     }
 
     @Test
