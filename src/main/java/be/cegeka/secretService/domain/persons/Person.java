@@ -23,6 +23,7 @@ public class Person {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return  null;
     }
 
     public long getId() {
@@ -39,6 +40,8 @@ public class Person {
 
     public String hashPerson(){
         String secret = readKey();
+
+        return null;
     }
 
     @Override
