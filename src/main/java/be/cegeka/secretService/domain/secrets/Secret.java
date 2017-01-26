@@ -1,21 +1,19 @@
 package be.cegeka.secretService.domain.secrets;
 
-import be.cegeka.secretService.domain.persons.Person;
-
 /**
  * Created by roelg on 26/01/2017.
  */
 public class Secret {
-    Person owner;
     String secret;
+    String ownerHash;
 
-    public Secret(Person owner, String secret) {
-        this.owner = owner;
+    public Secret(String secret, String owner) {
+        this.ownerHash = owner;
         this.secret = secret;
     }
 
-    public Person getOwner() {
-        return owner;
+    public String getOwnerHash() {
+        return ownerHash;
     }
 
     public String getSecret() {
@@ -29,14 +27,14 @@ public class Secret {
 
         Secret secret1 = (Secret) o;
 
-        if (owner != null ? !owner.equals(secret1.owner) : secret1.owner != null) return false;
-        return secret != null ? secret.equals(secret1.secret) : secret1.secret == null;
+        if (secret != null ? !secret.equals(secret1.secret) : secret1.secret != null) return false;
+        return ownerHash != null ? ownerHash.equals(secret1.ownerHash) : secret1.ownerHash == null;
     }
 
     @Override
     public int hashCode() {
-        int result = owner != null ? owner.hashCode() : 0;
-        result = 31 * result + (secret != null ? secret.hashCode() : 0);
+        int result = secret != null ? secret.hashCode() : 0;
+        result = 31 * result + (ownerHash != null ? ownerHash.hashCode() : 0);
         return result;
     }
 }
