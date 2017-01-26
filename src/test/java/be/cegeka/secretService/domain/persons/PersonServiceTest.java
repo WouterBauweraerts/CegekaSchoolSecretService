@@ -22,10 +22,10 @@ public class PersonServiceTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @InjectMocks
-    private UserService userService;
+    private PersonService userService;
 
     @Mock
-    private UserRepository userRepository;
+    private PersonRepository userRepository;
 
     @Before
     public void setUp() throws Exception {

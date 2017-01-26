@@ -1,7 +1,7 @@
 package be.cegeka.secretService.application;
 
 import be.cegeka.secretService.domain.persons.Person;
-import be.cegeka.secretService.domain.persons.UserService;
+import be.cegeka.secretService.domain.persons.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,10 +13,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class PersonController {
 
     @Inject
-    private UserService userService;
+    private PersonService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     public

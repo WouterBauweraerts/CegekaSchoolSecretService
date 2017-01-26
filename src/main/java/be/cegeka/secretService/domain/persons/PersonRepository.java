@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Named
-public class UserRepository {
+public class PersonRepository {
 
     private List<Person> people = new ArrayList<>();
 

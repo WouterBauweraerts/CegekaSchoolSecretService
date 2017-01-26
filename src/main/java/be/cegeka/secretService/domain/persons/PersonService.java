@@ -6,18 +6,18 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Named
-public class UserService {
+public class PersonService {
 
     @Inject
-    private UserRepository userRepository;
+    private PersonRepository personRepo;
 
     private final AtomicLong counter = new AtomicLong();
 
-    public void addUser(String name){
-        userRepository.addUser(new Person(counter.incrementAndGet() , name));
+    public void addUser(String name, String firstName){
+        personRepo.addUser(new Person(counter.incrementAndGet(), name, firstName));
     }
 
     public List<Person> getAllUsers() {
-        return userRepository.getAllUsers();
+        return personRepo.getAllUsers();
     }
 }

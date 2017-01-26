@@ -4,10 +4,12 @@ public class Person {
 
     private final long id;
     private final String name;
+    private final String firstName;
 
-    public Person(long id, String name) {
+    public Person(long id, String name, String firstName) {
         this.id = id;
         this.name = name;
+        this.firstName = firstName;
     }
 
     public long getId() {
@@ -16,6 +18,15 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    public String getFirstName() {return firstName;}
+
+    public String getFullName() { return String.format("%s %s", firstName, name);}
+
+    @Override
+    public String toString() {
+        return "Person: (" + id + ") " + getFullName();
     }
 
     @Override
