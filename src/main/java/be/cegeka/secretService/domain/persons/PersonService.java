@@ -13,11 +13,17 @@ public class PersonService {
 
     private final AtomicLong counter = new AtomicLong();
 
-    public void addUser(String firstName, String lastName){
-        personRepo.addUser(new Person(counter.incrementAndGet(), firstName, lastName));
+    public Person addPerson(String firstName, String lastName){
+        Person personToAdd = new Person(counter.incrementAndGet(), firstName, lastName);
+        personRepo.addPerson(personToAdd);
+        return personToAdd;
     }
 
-    public List<Person> getAllUsers() {
-        return personRepo.getAllUsers();
+    public List<Person> getAllPersons() {
+        return personRepo.getAllPerson();
+    }
+
+    public Person getPerson(String firstName, String lastName){
+        return personRepo.readPerson(firstName, lastName);
     }
 }
