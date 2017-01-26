@@ -28,8 +28,9 @@ public class PersonController {
     @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
-    void addUser(@RequestParam(value = "name", required = true) String name) {
-        userService.addUser(name);
+    void addUser(@RequestParam(value = "name", required = true) String firstName,
+                 @RequestParam(value = "firstName", required = true) String lastName) {
+        userService.addUser(firstName,lastName);
     }
 
 }

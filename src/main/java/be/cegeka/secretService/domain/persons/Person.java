@@ -7,18 +7,17 @@ import java.nio.file.Paths;
 public class Person {
 
     private final long id;
-    private final String name;
     private final String firstName;
-    private final String secretKey;
+    private final String lastName;
 
-    public Person(long id, String name, String firstName) {
+    public Person(long id, String firstName, String lastName) {
         this.id = id;
-        this.name = name;
         this.firstName = firstName;
-        this.secretKey = readKey();
+        this.lastName = lastName;
     }
 
     private String readKey() {
+
         try {
             return new String(Files.readAllBytes(Paths.get("\\secret\\secretKey.txt")));
         } catch (IOException e) {
@@ -30,16 +29,16 @@ public class Person {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getFirstName() {return firstName;}
+    public String getLastName() {return lastName;}
 
-    public String getFullName() { return String.format("%s %s", firstName, name);}
+    public String getFullName() { return String.format("%s %s", lastName, firstName);}
 
     public String hashPerson(){
-
+        String secret = readKey();
     }
 
     @Override
@@ -55,13 +54,13 @@ public class Person {
         Person person = (Person) o;
 
         if (id != person.id) return false;
-        return name != null ? name.equals(person.name) : person.name == null;
+        return firstName != null ? firstName.equals(person.firstName) : person.firstName == null;
     }
 
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
         return result;
     }
 }
