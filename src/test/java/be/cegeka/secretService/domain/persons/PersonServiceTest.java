@@ -45,7 +45,7 @@ public class PersonServiceTest {
         Person person2 = new Person(2l, "Sanne","Gielen");
         Person person3 = new Person(3l, "Xan","Gielen");
 
-        when(personRepository.getAllPerson()).thenReturn(Arrays.asList(person1, person2));
+        when(personRepository.readAll()).thenReturn(Arrays.asList(person1, person2));
 
         assertThat(personService.getAllPersons()).containsOnly(person1, person2);
     }

@@ -20,10 +20,14 @@ public class PersonService {
     }
 
     public List<Person> getAllPersons() {
-        return personRepo.getAllPerson();
+        return personRepo.readAll();
     }
 
     public Person getPerson(String firstName, String lastName){
         return personRepo.readPerson(firstName, lastName);
+    }
+
+    public String getEncryptedPersonString(String firstName, String lastName){
+        return getPerson(firstName, lastName).getEncryptedHash();
     }
 }

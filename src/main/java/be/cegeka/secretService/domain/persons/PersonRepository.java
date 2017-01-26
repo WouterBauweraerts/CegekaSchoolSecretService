@@ -1,7 +1,10 @@
 package be.cegeka.secretService.domain.persons;
 
+import be.cegeka.secretService.domain.BaseRepository;
+import be.cegeka.secretService.infrastructure.DataManager;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.*;
 import java.util.ArrayList;
@@ -9,17 +12,22 @@ import java.util.List;
 import java.util.Optional;
 
 @Named
-public class PersonRepository implements Serializable {
+public class PersonRepository extends BaseRepository<Person>{
 
-    private final String file = ".\\data\\personRepo.ser";
+    private static final String file = ".\\data\\personRepo.ser";
     private List<Person> people = new ArrayList<>();
+
+    @Inject
+    private DataManager mgr;
 
     @Autowired
     public PersonRepository(){
+        super(file);
         readRepoFromFile();
     }
 
-    public List<Person> getAllPerson() {
+    @Override
+    public List<Person> readAll() {
         return people;
     }
 
@@ -38,13 +46,7 @@ public class PersonRepository implements Serializable {
     }
 
     public void writePersonRepoToFile() {
-        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
-            out.writeObject(people);
-        } catch (FileNotFoundException fe) {
-            fe.printStackTrace();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
+        mgr.writeRepositoryToFile(this);
     }
 
     public void readRepoFromFile() {

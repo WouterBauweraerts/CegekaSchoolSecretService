@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by wouterba on 26/01/2017.
@@ -15,7 +16,7 @@ public class PersonRepositoryTest {
 
     @BeforeClass
     public static void setUp(){
-        repo = new PersonRepository();
+        repo = mock(PersonRepository.class);
         repo.addPerson(new Person(1, "Wouter", "Bauweraerts"));
         repo.addPerson(new Person(2, "Roel", "Goossens"));
         repo.addPerson(new Person(3, "Seppe", "Gielen"));
