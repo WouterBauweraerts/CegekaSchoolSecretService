@@ -33,6 +33,7 @@ public class PersonRepository extends BaseRepository<Person>{
 
     public void addPerson(Person person) {
         people.add(person);
+        writePersonRepoToFile();
     }
 
     public Person readPerson(String firstName, String lastName) {
@@ -50,15 +51,7 @@ public class PersonRepository extends BaseRepository<Person>{
     }
 
     public void readRepoFromFile() {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            this.people = (List<Person>) in.readObject();
-        } catch (FileNotFoundException fe) {
-            this.people = new ArrayList<>(); //file doesn't exist
-        } catch (ClassNotFoundException ce) {
-            ce.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
-        }
+
     }
 
     @Override

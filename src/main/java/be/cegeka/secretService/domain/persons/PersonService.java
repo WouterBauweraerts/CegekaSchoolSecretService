@@ -1,12 +1,15 @@
 package be.cegeka.secretService.domain.persons;
 
+import org.springframework.beans.factory.DisposableBean;
+
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Named
-public class PersonService {
+public class PersonService{
 
     @Inject
     private PersonRepository personRepo;

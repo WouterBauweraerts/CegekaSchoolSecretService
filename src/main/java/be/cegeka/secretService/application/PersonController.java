@@ -12,7 +12,7 @@ import javax.inject.Inject;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/person")
 public class PersonController {
 
     @Inject
@@ -31,6 +31,13 @@ public class PersonController {
     void addUser(@RequestParam(value = "lastName", required = true) String firstName,
                  @RequestParam(value = "firstName", required = true) String lastName) {
         personService.addPerson(firstName,lastName);
+    }
+
+    @RequestMapping(value = "/getEncryptedPerson", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String getEnryptedPerson(String firstName, String lastName){
+        return personService.getEncryptedPersonString(firstName, lastName);
     }
 
 }
