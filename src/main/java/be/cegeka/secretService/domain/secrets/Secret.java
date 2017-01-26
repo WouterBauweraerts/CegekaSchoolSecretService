@@ -1,4 +1,4 @@
-package be.cegeka.secretService.domain.secret;
+package be.cegeka.secretService.domain.secrets;
 
 import be.cegeka.secretService.domain.persons.Person;
 

@@ -1,4 +1,4 @@
-package be.cegeka.secretService.domain.secret;
+package be.cegeka.secretService.domain.secrets;
 
 import javax.inject.Inject;
 import javax.inject.Named;
