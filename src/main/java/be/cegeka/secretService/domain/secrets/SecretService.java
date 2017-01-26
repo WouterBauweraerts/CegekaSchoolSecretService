@@ -28,8 +28,7 @@ public class SecretService {
     }
 
     public Secret getRandomSecret() {
-        List<Secret> secretList = secretRepository.getAllSecrets();
-        Secret output  = secretList.get(new Random().nextInt(secretList.size()));
+        Secret output  = secretRepository.getRandomSecret();
         secretRepository.removeSecret(output);
         return output;
     }

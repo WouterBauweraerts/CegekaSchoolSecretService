@@ -23,5 +23,4 @@ public class SecretTest {
     public void getSecret() throws Exception {
         Assertions.assertThat(secret.getSecret()).isEqualTo("SECRET!!!!");
     }
-
 }
