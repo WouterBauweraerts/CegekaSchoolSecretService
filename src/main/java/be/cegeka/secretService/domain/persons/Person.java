@@ -4,12 +4,12 @@ public class Person {
 
     private final long id;
     private final String firstName;
-    private final String lasrName;
+    private final String lastName;
 
-    public Person(long id, String name, String firstName) {
+    public Person(long id, String firstName, String lastName) {
         this.id = id;
-        this.firstName = name;
-        this.lasrName = firstName;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public long getId() {
@@ -20,9 +20,9 @@ public class Person {
         return firstName;
     }
 
-    public String getLasrName() {return lasrName;}
+    public String getLastName() {return lastName;}
 
-    public String getFullName() { return String.format("%s %s", lasrName, firstName);}
+    public String getFullName() { return String.format("%s %s", lastName, firstName);}
 
     @Override
     public String toString() {
