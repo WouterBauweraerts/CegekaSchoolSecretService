@@ -22,7 +22,7 @@ public class Person implements Serializable{
     private String readKey() {
 
         try {
-            return new String(Files.readAllBytes(Paths.get(".\\secret\\secretKey.txt")));
+            return new String(Files.readAllBytes(Paths.get(".\\data\\secret\\secretKey.txt")));
         } catch (IOException e) {
             e.printStackTrace();
         }

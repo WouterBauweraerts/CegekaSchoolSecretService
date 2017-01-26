@@ -16,21 +16,21 @@ import java.util.List;
 public class PersonController {
 
     @Inject
-    private PersonService userService;
+    private PersonService personService = new PersonService();
 
     @RequestMapping(method = RequestMethod.GET)
     public
     @ResponseBody
     List<Person> getUsers() {
-        return userService.getAllUsers();
+        return personService.getAllUsers();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
-    void addUser(@RequestParam(value = "name", required = true) String firstName,
+    void addUser(@RequestParam(value = "lastName", required = true) String firstName,
                  @RequestParam(value = "firstName", required = true) String lastName) {
-        userService.addUser(firstName,lastName);
+        personService.addUser(firstName,lastName);
     }
 
 }
