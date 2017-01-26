@@ -22,7 +22,7 @@ public class PersonController {
     public
     @ResponseBody
     List<Person> getUsers() {
-        return personService.getAllUsers();
+        return personService.getAllPersons();
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -30,7 +30,7 @@ public class PersonController {
     @ResponseBody
     void addUser(@RequestParam(value = "lastName", required = true) String firstName,
                  @RequestParam(value = "firstName", required = true) String lastName) {
-        personService.addUser(firstName,lastName);
+        personService.addPerson(firstName,lastName);
     }
 
 }
