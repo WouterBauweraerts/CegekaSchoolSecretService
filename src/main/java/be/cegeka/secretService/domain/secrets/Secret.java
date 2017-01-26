@@ -4,12 +4,18 @@ package be.cegeka.secretService.domain.secrets;
  * Created by roelg on 26/01/2017.
  */
 public class Secret {
+    long id;
     String secret;
     String ownerHash;
 
-    public Secret(String secret, String ownerHash) {
-        this.ownerHash = ownerHash;
+    public Secret(long id, String secret, String ownerHash) {
+        this.id = id;
         this.secret = secret;
+        this.ownerHash = ownerHash;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getOwnerHash() {
