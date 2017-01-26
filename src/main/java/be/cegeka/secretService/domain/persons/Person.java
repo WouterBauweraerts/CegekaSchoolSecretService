@@ -22,7 +22,7 @@ public class Person {
     private String readKey() {
 
         try {
-            return new String(Files.readAllBytes(Paths.get("\\secret\\secretKey.txt")));
+            return new String(Files.readAllBytes(Paths.get(".\\secret\\secretKey.txt")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,14 +67,14 @@ public class Person {
 
         Person person = (Person) o;
 
-        if (id != person.id) return false;
-        return firstName != null ? firstName.equals(person.firstName) : person.firstName == null;
+        if (!firstName.equals(person.firstName)) return false;
+        return lastName.equals(person.lastName);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        int result = firstName.hashCode();
+        result = 31 * result + lastName.hashCode();
         return result;
     }
 }
