@@ -5,8 +5,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by wouterba on 26/01/2017.
  */
@@ -40,8 +38,8 @@ public class PersonTest {
 
     @Test
     public void personMultipleHashingsReturnEqualResults(){
-        Assertions.assertThat(person.hashPerson()).isEqualTo(person.hashPerson());
-        System.out.println(person.hashPerson());
+        Assertions.assertThat(person.getEncryptedHash()).isEqualTo(person.getEncryptedHash());
+        System.out.println(person.getEncryptedHash());
     }
 
 }

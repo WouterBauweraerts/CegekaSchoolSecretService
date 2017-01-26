@@ -41,7 +41,7 @@ public class Person implements Serializable{
 
     public String getFullName() { return String.format("%s %s", lastName, firstName);}
 
-    public String hashPerson(){
+    public String getEncryptedHash(){
         String secret = readKey();
         String nameToHash = getFullName();
         String hashed = null;
