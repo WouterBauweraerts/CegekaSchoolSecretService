@@ -1,8 +1,11 @@
 package be.cegeka.secretService.domain.persons;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class Person {
 
@@ -40,8 +43,16 @@ public class Person {
 
     public String hashPerson(){
         String secret = readKey();
-
-        return null;
+        String nameToHash = getFullName();
+        String hashed = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update((nameToHash+secret).getBytes());
+            hashed = new BigInteger(md.digest()).toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return hashed;
     }
 
     @Override
