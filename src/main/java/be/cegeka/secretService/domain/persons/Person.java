@@ -1,15 +1,29 @@
 package be.cegeka.secretService.domain.persons;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class Person {
 
     private final long id;
     private final String name;
     private final String firstName;
+    private final String secretKey;
 
     public Person(long id, String name, String firstName) {
         this.id = id;
         this.name = name;
         this.firstName = firstName;
+        this.secretKey = readKey();
+    }
+
+    private String readKey() {
+        try {
+            return new String(Files.readAllBytes(Paths.get("\\secret\\secretKey.txt")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public long getId() {
@@ -23,6 +37,10 @@ public class Person {
     public String getFirstName() {return firstName;}
 
     public String getFullName() { return String.format("%s %s", firstName, name);}
+
+    public String hashPerson(){
+
+    }
 
     @Override
     public String toString() {
