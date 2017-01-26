@@ -1,4 +1,4 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.secretService.domain.books;
 
 /**
  * Created by stevene on 25/01/2017.

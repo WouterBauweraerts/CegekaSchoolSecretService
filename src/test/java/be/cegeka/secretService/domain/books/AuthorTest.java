@@ -1,10 +1,8 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.secretService.domain.books;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class AuthorTest {
 

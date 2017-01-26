@@ -1,7 +1,7 @@
-package be.cegeka.bibliothouris.application;
+package be.cegeka.secretService.application;
 
-import be.cegeka.bibliothouris.domain.users.User;
-import be.cegeka.bibliothouris.domain.users.UserService;
+import be.cegeka.secretService.domain.persons.Person;
+import be.cegeka.secretService.domain.persons.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 @RequestMapping("/user")
@@ -22,7 +21,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET)
     public
     @ResponseBody
-    List<User> getUsers() {
+    List<Person> getUsers() {
         return userService.getAllUsers();
     }
 

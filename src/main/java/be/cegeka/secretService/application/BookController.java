@@ -1,9 +1,8 @@
-package be.cegeka.bibliothouris.application;
+package be.cegeka.secretService.application;
 
 
-import be.cegeka.bibliothouris.domain.books.Book;
-import be.cegeka.bibliothouris.domain.books.BookService;
-import com.sun.jmx.remote.internal.ArrayQueue;
+import be.cegeka.secretService.domain.books.Book;
+import be.cegeka.secretService.domain.books.BookService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

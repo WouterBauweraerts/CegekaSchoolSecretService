@@ -1,4 +1,4 @@
-package be.cegeka.bibliothouris;
+package be.cegeka.secretService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

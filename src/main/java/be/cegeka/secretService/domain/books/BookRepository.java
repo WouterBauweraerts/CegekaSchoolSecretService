@@ -1,11 +1,8 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.secretService.domain.books;
 
 import javax.inject.Named;
-import javax.validation.constraints.Null;
 import java.util.ArrayList;
 import java.util.List;
-
-import static javax.print.attribute.standard.MediaSizeName.A;
 
 @Named
 public class BookRepository {

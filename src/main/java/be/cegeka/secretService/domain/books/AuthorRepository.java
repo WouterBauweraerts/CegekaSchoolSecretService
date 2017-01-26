@@ -1,4 +1,4 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.secretService.domain.books;
 
 import javax.inject.Named;
 import java.util.ArrayList;

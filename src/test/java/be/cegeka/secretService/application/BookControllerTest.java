@@ -1,20 +1,12 @@
-package be.cegeka.bibliothouris.application;
+package be.cegeka.secretService.application;
 
-import be.cegeka.bibliothouris.domain.books.Author;
-import be.cegeka.bibliothouris.domain.books.Book;
-import be.cegeka.bibliothouris.domain.books.BookRepository;
-import be.cegeka.bibliothouris.domain.books.BookService;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import be.cegeka.secretService.domain.books.Author;
+import be.cegeka.secretService.domain.books.Book;
+import be.cegeka.secretService.domain.books.BookService;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.http.HttpStatus;
-
-import java.awt.*;
-import java.util.*;
-import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class BookControllerTest {
 

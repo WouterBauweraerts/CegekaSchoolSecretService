@@ -1,11 +1,11 @@
-package be.cegeka.bibliothouris.domain.users;
+package be.cegeka.secretService.domain.persons;
 
-public class User {
+public class Person {
 
     private final long id;
     private final String name;
 
-    public User(long id, String name) {
+    public Person(long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -23,10 +23,10 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        User user = (User) o;
+        Person person = (Person) o;
 
-        if (id != user.id) return false;
-        return name != null ? name.equals(user.name) : user.name == null;
+        if (id != person.id) return false;
+        return name != null ? name.equals(person.name) : person.name == null;
     }
 
     @Override

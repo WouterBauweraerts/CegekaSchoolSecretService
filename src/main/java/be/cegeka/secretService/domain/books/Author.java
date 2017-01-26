@@ -1,4 +1,4 @@
-package be.cegeka.bibliothouris.domain.books;
+package be.cegeka.secretService.domain.books;
 
 public class Author {
 

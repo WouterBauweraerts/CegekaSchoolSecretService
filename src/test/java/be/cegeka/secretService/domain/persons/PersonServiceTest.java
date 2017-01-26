@@ -1,27 +1,22 @@
-package be.cegeka.bibliothouris.domain.users;
+package be.cegeka.secretService.domain.persons;
 
-import org.assertj.core.api.Assertions;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicLong;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-public class UserServiceTest {
+public class PersonServiceTest {
 
     @Rule
     public MockitoRule rule = MockitoJUnit.rule();
@@ -41,17 +36,17 @@ public class UserServiceTest {
     public void addUser_ShouldCallUserRepository() throws Exception {
         userService.addUser("Seppe");
 
-        verify(userRepository).addUser(new User(5l, "Seppe"));
+        verify(userRepository).addUser(new Person(5l, "Seppe"));
     }
 
     @Test
     public void getAllUsers() throws Exception {
-        User user1 = new User(1l, "Seppe");
-        User user2 = new User(2l, "Sanne");
-        User user3 = new User(3l, "Xan");
+        Person person1 = new Person(1l, "Seppe");
+        Person person2 = new Person(2l, "Sanne");
+        Person person3 = new Person(3l, "Xan");
 
-        when(userRepository.getAllUsers()).thenReturn(Arrays.asList(user1, user2));
+        when(userRepository.getAllUsers()).thenReturn(Arrays.asList(person1, person2));
 
-        assertThat(userService.getAllUsers()).containsOnly(user1, user2);
+        assertThat(userService.getAllUsers()).containsOnly(person1, person2);
     }
 }
