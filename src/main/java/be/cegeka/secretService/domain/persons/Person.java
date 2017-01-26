@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Person {
+public class Person implements Serializable{
 
     private final long id;
     private final String firstName;
