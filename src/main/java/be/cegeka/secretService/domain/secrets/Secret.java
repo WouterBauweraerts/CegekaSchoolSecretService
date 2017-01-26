@@ -7,8 +7,8 @@ public class Secret {
     String secret;
     String ownerHash;
 
-    public Secret(String secret, String owner) {
-        this.ownerHash = owner;
+    public Secret(String secret, String ownerHash) {
+        this.ownerHash = ownerHash;
         this.secret = secret;
     }
 

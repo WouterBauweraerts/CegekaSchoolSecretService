@@ -16,7 +16,7 @@ import java.util.List;
 public class PersonController {
 
     @Inject
-    private PersonService personService = new PersonService();
+    private PersonService personService;
 
     @RequestMapping(method = RequestMethod.GET)
     public

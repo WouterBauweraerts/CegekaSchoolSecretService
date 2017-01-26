@@ -3,6 +3,7 @@ package be.cegeka.secretService.domain.secrets;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by roelg on 26/01/2017.
@@ -22,5 +23,10 @@ public class SecretRepository {
     public void removeSecret(Secret secret){
         secrets.remove(secret);
     }
+
+    public Secret getRandomSecret() {
+        return  secrets.get(new Random().nextInt(secrets.size()));
+    }
+
 
 }

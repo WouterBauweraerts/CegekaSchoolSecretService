@@ -1,5 +1,8 @@
 package be.cegeka.secretService.domain.secrets;
 
+import be.cegeka.secretService.domain.persons.Person;
+import be.cegeka.secretService.domain.persons.PersonService;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
@@ -13,10 +16,19 @@ public class SecretService {
 
     @Inject
     SecretRepository secretRepository;
+    @Inject
+    PersonService personService;
+
+    public void addSecret(String secretString, String firstName, String lastName){
+        Person owner = personService.getPerson(firstName,lastName);
+        if (owner == null){
+            owner = personService.addPerson(firstName,lastName);
+        }
+        secretRepository.addSecret(new Secret(secretString,owner.getEncryptedHash()));
+    }
 
     public Secret getRandomSecret() {
-        List<Secret> secretList = secretRepository.getAllSecrets();
-        Secret output  = secretList.get(new Random().nextInt(secretList.size()));
+        Secret output  = secretRepository.getRandomSecret();
         secretRepository.removeSecret(output);
         return output;
     }
