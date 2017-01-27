@@ -2,6 +2,7 @@ package be.cegeka.secretService.domain.secrets;
 
 import be.cegeka.secretService.domain.BaseRepository;
 import be.cegeka.secretService.infrastructure.DataManager;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,8 +23,10 @@ public class SecretRepository extends BaseRepository<Secret> {
     @Inject
     private DataManager mgr;
 
+    @Autowired
     public SecretRepository() {
         super(file);
+        readRepoFromFile();
     }
 
     public List<Secret> readAll() {
@@ -32,10 +35,12 @@ public class SecretRepository extends BaseRepository<Secret> {
 
     public void addSecret(Secret secret){
         secrets.add(secret);
+        writeSecretRepoToFile();
     }
 
     public void removeSecret(Secret secret){
         secrets.remove(secret);
+        writeSecretRepoToFile();
     }
 
     public Secret getRandomSecret() {
