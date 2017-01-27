@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class SecretService {
 
     private final AtomicLong counter = new AtomicLong();
+    private static Secret secretOfTheDay;
 
 
     @Inject
@@ -32,10 +33,10 @@ public class SecretService {
         secretRepository.addSecret(new Secret(counter.incrementAndGet(), secretString,owner.getEncryptedHash()));
     }
 
-    public Secret getRandomSecret() {
-        Secret output = secretRepository.getRandomSecret();
-        secretRepository.removeSecret(output);
-        return output;
+    public String getRandomSecret() {
+        secretOfTheDay = secretRepository.getRandomSecret();
+        //secretRepository.removeSecret(output); --> I would remove the secret from the repo after we know who's secret it is
+        return secretOfTheDay.getSecret();
     }
 
     public List<Person> getPersonsWithoutSecret() {
