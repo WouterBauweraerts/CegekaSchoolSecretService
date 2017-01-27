@@ -55,7 +55,6 @@ public class SecretService {
                 hasSecret = true;
             }
         }
-
         return hasSecret;
     }
 }
