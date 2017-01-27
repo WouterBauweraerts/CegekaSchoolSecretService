@@ -26,6 +26,7 @@ public class SecretRepository extends BaseRepository<Secret> {
     @Autowired
     public SecretRepository() {
         super(file);
+        mgr = new DataManager();
         readRepoFromFile();
     }
 

@@ -23,6 +23,7 @@ public class PersonRepository extends BaseRepository<Person>{
     @Autowired
     public PersonRepository(){
         super(file);
+        mgr = new DataManager();
         readRepoFromFile();
     }
 
