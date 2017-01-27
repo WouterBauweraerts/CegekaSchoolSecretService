@@ -33,10 +33,8 @@ public class SecretService {
         secretRepository.addSecret(new Secret(counter.incrementAndGet(), secretString,owner.getEncryptedHash()));
     }
 
-    public String getRandomSecret() {
-        secretOfTheDay = secretRepository.getRandomSecret();
-        //secretRepository.removeSecret(output); --> I would remove the secret from the repo after we know who's secret it is
-        return secretOfTheDay.getSecret();
+    public Secret getRandomSecret() {
+        return secretRepository.getRandomSecret();
     }
 
     public List<Person> getPersonsWithoutSecret() {
