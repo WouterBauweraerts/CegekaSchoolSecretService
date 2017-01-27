@@ -51,7 +51,7 @@ public class PersonRepository extends BaseRepository<Person>{
     }
 
     public void readRepoFromFile() {
-        mgr.readRepoFromFile(this);
+       this.people =  mgr.readRepoFromFile(this);
     }
 
     @Override
