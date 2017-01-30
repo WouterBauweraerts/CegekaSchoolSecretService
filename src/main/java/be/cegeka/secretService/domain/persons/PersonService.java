@@ -24,7 +24,7 @@ public class PersonService{
     }
 
     public List<Person> getAllPersons() {
-        return personRepo.readAll();
+        return personRepo.getAll();
     }
 
     public Person getPerson(String firstName, String lastName){

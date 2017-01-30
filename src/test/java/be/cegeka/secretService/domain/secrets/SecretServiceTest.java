@@ -60,7 +60,7 @@ public class SecretServiceTest {
         Secret secret2 = new Secret(2l, "Sanne", "Gielen");
         Secret secret3 = new Secret(3l, "Xan", "Gielen");
 
-        when(secretRepository.readAll()).thenReturn(Arrays.asList(secret1, secret3));
+        when(secretRepository.getAll()).thenReturn(Arrays.asList(secret1, secret3));
         when(secretRepository.getRandomSecret()).thenReturn(secret2);
 
         Secret testResult = testedService.getRandomSecret();

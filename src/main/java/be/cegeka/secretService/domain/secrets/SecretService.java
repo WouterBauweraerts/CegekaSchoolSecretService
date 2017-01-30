@@ -49,7 +49,7 @@ public class SecretService {
 
     private boolean personHasSecret(String encryptedHash) {
         boolean hasSecret = false;
-        for (Secret secret : secretRepository.readAll()) {
+        for (Secret secret : secretRepository.getAll()) {
             if (encryptedHash.equals(secret.getOwnerHash())) {
                 hasSecret = true;
             }

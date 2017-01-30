@@ -30,8 +30,8 @@ public class SecretRepository extends BaseRepository<Secret> {
         readRepoFromFile();
     }
 
-    public List<Secret> readAll() {
-        return secrets;
+    public List<Secret> getAll() {
+        return data;
     }
 
     public void addSecret(Secret secret){

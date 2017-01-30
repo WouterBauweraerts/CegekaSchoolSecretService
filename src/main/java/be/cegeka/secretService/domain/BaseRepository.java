@@ -11,7 +11,10 @@ public abstract class BaseRepository <T> {
     public BaseRepository(String file){
         this.file = file;
     }
-    public abstract List<T> readAll();
+
+    public List<T> getAll(){
+        return new ArrayList<T>(data);
+    }
 
     public String getFile() {
         return file;

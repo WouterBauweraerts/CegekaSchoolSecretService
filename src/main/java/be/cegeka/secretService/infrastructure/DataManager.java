@@ -17,7 +17,7 @@ public class DataManager {
     public void writeRepositoryToFile(BaseRepository repo){
         String file = repo.getFile();
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
-            out.writeObject(repo.readAll());
+            out.writeObject(repo.getAll());
         } catch (FileNotFoundException fe) {
             fe.printStackTrace();
         } catch (IOException ioe) {
