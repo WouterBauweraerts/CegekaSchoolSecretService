@@ -1,31 +1,30 @@
 package be.cegeka.secretService.domain.persons;
 
-import be.cegeka.secretService.domain.BaseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import be.cegeka.secretService.domain.secrets.Secret;
+import be.cegeka.secretService.infrastructure.DataManager;
 
 import javax.inject.Named;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Named
-public class PersonRepository extends BaseRepository<Person>{
+public class PersonRepository {
 
-    private static final String FILE = ".\\data\\personRepo.ser";
+    private DataManager mgr = new DataManager(".\\people\\personRepo.ser");
+    private DataManager mgr = new DataManager(".\\people\\personRepo.ser");
+    private List<Person> people = mgr.readRepoFromFile();
 
-    @Autowired
-    public PersonRepository(){
-        super(FILE);
-        readRepoFromFile();
+    public List<Person> getAll() {
+        return people;
     }
 
     public void addPerson(Person person) {
-        data.add(person);
-        writeRepoToFile();
+        people.add(person);
+        mgr.writeRepoToFile(people);
     }
 
     public Person readPerson(String firstName, String lastName) {
-        Optional<Person> result = data.stream()
+        Optional<Person> result = people.stream()
                 .filter(p -> p.getFirstName().equals(firstName) && p.getLastName().equals(lastName))
                 .findFirst();
         if (result.isPresent()) {
@@ -41,11 +40,11 @@ public class PersonRepository extends BaseRepository<Person>{
 
         PersonRepository that = (PersonRepository) o;
 
-        return data.equals(that.data);
+        return people.equals(that.people);
     }
 
     @Override
     public int hashCode() {
-        return data.hashCode();
+        return people.hashCode();
     }
 }

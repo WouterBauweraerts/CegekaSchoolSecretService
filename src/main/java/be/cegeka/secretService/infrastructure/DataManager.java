@@ -1,6 +1,5 @@
 package be.cegeka.secretService.infrastructure;
 
-import be.cegeka.secretService.domain.BaseRepository;
 import be.cegeka.secretService.domain.persons.Person;
 
 import javax.inject.Named;
@@ -11,13 +10,17 @@ import java.util.List;
 /**
  * Created by wouterba on 26/01/2017.
  */
-@Named
 public class DataManager {
 
-    public void writeRepoToFile(BaseRepository repo){
-        String file = repo.getFile();
+    private String file;
+
+    public DataManager(String file) {
+        this.file = file;
+    }
+
+    public void writeRepoToFile(List list){
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
-            out.writeObject(repo.getAll());
+            out.writeObject(list);
         } catch (FileNotFoundException fe) {
             fe.printStackTrace();
         } catch (IOException ioe) {
@@ -25,10 +28,9 @@ public class DataManager {
         }
     }
 
-    public List readRepoFromFile(BaseRepository repo){
-        String file = repo.getFile();
+    public List readRepoFromFile (){
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            return (List<Person>) in.readObject();
+            return (List) (in.readObject());
         } catch (FileNotFoundException fe) {
             return new ArrayList<>(); //file doesn't exist
         } catch (ClassNotFoundException ce) {

@@ -1,10 +1,7 @@
 package be.cegeka.secretService.domain.secrets;
 
-import be.cegeka.secretService.domain.BaseRepository;
 import be.cegeka.secretService.infrastructure.DataManager;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,32 +11,27 @@ import java.util.Random;
  * Created by roelg on 26/01/2017.
  */
 @Named
-public class SecretRepository extends BaseRepository<Secret> {
+public class SecretRepository {
 
-    private static final String FILE = ".\\data\\secretRepo.ser";
-
-    @Autowired
-    public SecretRepository() {
-        super(FILE);
-        readRepoFromFile();
-    }
+    private DataManager mgr = new DataManager( ".\\secrets\\secretRepo.ser");
+    private List<Secret> secrets = mgr.readRepoFromFile();
 
     public List<Secret> getAll() {
-        return data;
+        return secrets;
     }
 
     public void addSecret(Secret secret){
-        data.add(secret);
-        writeRepoToFile();
+        secrets.add(secret);
+        mgr.writeRepoToFile(secrets);
     }
 
     public void removeSecret(Secret secret){
-        data.remove(secret);
-        writeRepoToFile();
+        secrets.remove(secret);
+        mgr.readRepoFromFile();
     }
 
     public Secret getRandomSecret() {
-        return  data.get(new Random().nextInt(data.size()));
+        return  secrets.get(new Random().nextInt(secrets.size()));
     }
 
 
