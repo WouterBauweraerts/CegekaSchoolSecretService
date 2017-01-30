@@ -1,9 +1,5 @@
 package be.cegeka.secretService.domain.persons;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
