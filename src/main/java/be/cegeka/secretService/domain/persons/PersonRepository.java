@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +13,7 @@ import java.util.Optional;
 @Named
 public class PersonRepository extends BaseRepository<Person>{
 
-    private static final String file = ".\\data\\personRepo.ser";
+    private static final String FILE = ".\\data\\personRepo.ser";
     private List<Person> people = new ArrayList<>();
 
     @Inject
@@ -22,7 +21,7 @@ public class PersonRepository extends BaseRepository<Person>{
 
     @Autowired
     public PersonRepository(){
-        super(file);
+        super(FILE);
         mgr = new DataManager();
         readRepoFromFile();
     }

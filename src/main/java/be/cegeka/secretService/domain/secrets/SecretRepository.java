@@ -16,7 +16,7 @@ import java.util.Random;
 @Named
 public class SecretRepository extends BaseRepository<Secret> {
 
-    private static final String file = ".\\data\\secretRepo.ser";
+    private static final String FILE = ".\\data\\secretRepo.ser";
 
     List<Secret> secrets = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class SecretRepository extends BaseRepository<Secret> {
 
     @Autowired
     public SecretRepository() {
-        super(file);
+        super(FILE);
         mgr = new DataManager();
         readRepoFromFile();
     }
