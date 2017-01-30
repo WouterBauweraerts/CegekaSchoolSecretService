@@ -18,15 +18,9 @@ public class SecretRepository extends BaseRepository<Secret> {
 
     private static final String FILE = ".\\data\\secretRepo.ser";
 
-    List<Secret> secrets = new ArrayList<>();
-
-    @Inject
-    private DataManager mgr;
-
     @Autowired
     public SecretRepository() {
         super(FILE);
-        mgr = new DataManager();
         readRepoFromFile();
     }
 
@@ -35,24 +29,18 @@ public class SecretRepository extends BaseRepository<Secret> {
     }
 
     public void addSecret(Secret secret){
-        secrets.add(secret);
-        writeSecretRepoToFile();
+        data.add(secret);
+        writeRepoToFile();
     }
 
     public void removeSecret(Secret secret){
-        secrets.remove(secret);
-        writeSecretRepoToFile();
+        data.remove(secret);
+        writeRepoToFile();
     }
 
     public Secret getRandomSecret() {
-        return  secrets.get(new Random().nextInt(secrets.size()));
+        return  data.get(new Random().nextInt(data.size()));
     }
 
-    public void writeSecretRepoToFile(){
-        mgr.writeRepositoryToFile(this);
-    }
 
-    public void readRepoFromFile(){
-       this.secrets =  mgr.readRepoFromFile(this);
-    }
 }

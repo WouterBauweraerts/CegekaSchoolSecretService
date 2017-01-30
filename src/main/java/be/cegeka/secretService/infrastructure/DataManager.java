@@ -14,7 +14,7 @@ import java.util.List;
 @Named
 public class DataManager {
 
-    public void writeRepositoryToFile(BaseRepository repo){
+    public void writeRepoToFile(BaseRepository repo){
         String file = repo.getFile();
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
             out.writeObject(repo.getAll());

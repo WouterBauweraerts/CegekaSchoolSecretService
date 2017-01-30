@@ -1,5 +1,9 @@
 package be.cegeka.secretService.domain;
 
+import be.cegeka.secretService.infrastructure.DataManager;
+
+import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,6 +11,11 @@ import java.util.List;
  */
 public abstract class BaseRepository <T> {
     private final String file;
+    protected List<T> data = new ArrayList<T>();
+
+    @Inject
+    private DataManager mgr;
+
 
     public BaseRepository(String file){
         this.file = file;
@@ -20,5 +29,11 @@ public abstract class BaseRepository <T> {
         return file;
     }
 
+    public void writeRepoToFile(){
+        mgr.writeRepoToFile(this);
+    }
 
+    public void readRepoFromFile(){
+        this.data =  mgr.readRepoFromFile(this);
+    }
 }
