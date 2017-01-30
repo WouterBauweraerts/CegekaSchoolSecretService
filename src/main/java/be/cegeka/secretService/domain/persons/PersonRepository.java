@@ -11,7 +11,6 @@ import java.util.Optional;
 public class PersonRepository {
 
     private DataManager mgr = new DataManager(".\\people\\personRepo.ser");
-    private DataManager mgr = new DataManager(".\\people\\personRepo.ser");
     private List<Person> people = mgr.readRepoFromFile();
 
     public List<Person> getAll() {
