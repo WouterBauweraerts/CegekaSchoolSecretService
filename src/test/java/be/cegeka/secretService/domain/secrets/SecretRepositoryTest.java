@@ -20,30 +20,17 @@ public class SecretRepositoryTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @InjectMocks
-    private SecretRepository testedRepo = new SecretRepository();// = mock(SecretRepository.class) ;
+    private SecretRepository testedRepo;
 
     @Mock
-    private DataManager dataManager;// = mock(DataManager.class);
+    private DataManager dataManager;
 
     @Mock
     private Secret secretMock;
 
     @Test
     public void writeRepoToFile() throws Exception {
-
-        //doNothing().when(((BaseRepository) testedRepo)).writeRepoToFile();
-
-        // testedRepo.addSecret(new Secret(4L,"    ","  "));
-
-        //verify(testedRepo).writeRepoToFile();
-
-        System.out.println(testedRepo);
         testedRepo.addSecret(secretMock);
         verify(dataManager).writeRepoToFile(anyList());
-    }
-
-    @Test
-    public void readRepoFromFile() throws Exception {
-
     }
 }
