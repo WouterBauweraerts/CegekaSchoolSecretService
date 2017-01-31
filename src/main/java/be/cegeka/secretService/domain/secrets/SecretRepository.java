@@ -13,7 +13,7 @@ import java.util.Random;
 @Named
 public class SecretRepository {
 
-    private DataManager mgr = new DataManager( ".\\secrets\\secretRepo.ser");
+    private DataManager mgr = new DataManager( ".\\data\\secretRepo.ser");
     private List<Secret> secrets = mgr.readRepoFromFile();
 
     public List<Secret> getAll() {

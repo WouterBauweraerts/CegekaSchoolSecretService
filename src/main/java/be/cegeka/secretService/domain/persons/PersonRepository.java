@@ -10,7 +10,7 @@ import java.util.Optional;
 @Named
 public class PersonRepository {
 
-    private DataManager mgr = new DataManager(".\\people\\personRepo.ser");
+    private DataManager mgr = new DataManager(".\\data\\personRepo.ser");
     private List<Person> people = mgr.readRepoFromFile();
 
     public List<Person> getAll() {
