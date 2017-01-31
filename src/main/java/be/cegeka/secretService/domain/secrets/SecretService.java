@@ -36,6 +36,10 @@ public class SecretService {
         return secretRepository.getRandomSecret();
     }
 
+    public void removeSecret(Secret secret){
+        secretRepository.removeSecret(secret);
+    }
+
     public List<Person> getPersonsWithoutSecret() {
         List<Person> personsWithoutSecret = new ArrayList<>();
         for (Person person : personService.getAllPersons()) {
