@@ -1,3 +1,6 @@
+/*
+Disabled since it has no functional use
+
 package be.cegeka.secretService.application;
 
 import be.cegeka.secretService.domain.persons.Person;
@@ -35,3 +38,4 @@ public class PersonController {
     }
 
 }
+*/
