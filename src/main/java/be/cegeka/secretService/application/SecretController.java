@@ -22,7 +22,7 @@ public class SecretController {
 
     @Inject
     private SecretService secretService;
-
+    
     @RequestMapping(method = RequestMethod.POST)
     public String addSecret(
             @RequestParam(value = "secret") String secret,
@@ -32,7 +32,7 @@ public class SecretController {
         return "index.html";
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/missing", method = RequestMethod.GET)
     public
     @ResponseBody
     ResponseEntity<List<Person>> getPersonsWithoutSecret(){
