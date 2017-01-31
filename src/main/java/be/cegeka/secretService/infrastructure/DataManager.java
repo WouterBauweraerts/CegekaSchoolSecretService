@@ -28,9 +28,9 @@ public class DataManager {
         }
     }
 
-    public List readRepoFromFile (){
+    public ArrayList readRepoFromFile (){
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-            return (List) (in.readObject());
+            return new ArrayList<>((List) (in.readObject()));
         } catch (FileNotFoundException fe) {
             return new ArrayList<>(); //file doesn't exist
         } catch (ClassNotFoundException ce) {

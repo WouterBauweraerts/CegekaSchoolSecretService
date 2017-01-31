@@ -1,9 +1,11 @@
 package be.cegeka.secretService.domain.secrets;
 
+import java.io.Serializable;
+
 /**
  * Created by roelg on 26/01/2017.
  */
-public class Secret {
+public class Secret implements Serializable{
     long id;
     String secret;
     String ownerHash;

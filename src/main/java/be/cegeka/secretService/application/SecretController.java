@@ -24,11 +24,12 @@ public class SecretController {
     private SecretService secretService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addSecret(
+    public String addSecret(
             @RequestParam(value = "secret") String secret,
             @RequestParam(value = "firstName") String firstName,
             @RequestParam(value = "lastName") String lastName){
         secretService.addSecret(secret, firstName, lastName);
+        return "index.html";
     }
 
     @RequestMapping(method = RequestMethod.GET)
