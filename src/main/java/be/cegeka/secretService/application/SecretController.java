@@ -26,8 +26,8 @@ public class SecretController {
     @RequestMapping(value = "/add",  method = RequestMethod.POST)
     public void addSecret(
             @RequestParam(value = "secret") String secret,
-            @RequestParam(value = "firstName") String firstName,
-            @RequestParam(value = "lastName") String lastName){
+            @RequestParam(value = "first name") String firstName,
+            @RequestParam(value = "last name") String lastName){
         secretService.addSecret(secret, firstName, lastName);
     }
 
