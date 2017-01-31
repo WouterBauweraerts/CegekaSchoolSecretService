@@ -23,7 +23,7 @@ public class SecretController {
     @Inject
     private SecretService secretService;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/add",  method = RequestMethod.POST)
     public void addSecret(
             @RequestParam(value = "secret") String secret,
             @RequestParam(value = "firstName") String firstName,
@@ -31,7 +31,7 @@ public class SecretController {
         secretService.addSecret(secret, firstName, lastName);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/missing", method = RequestMethod.GET)
     public
     @ResponseBody
     ResponseEntity<List<Person>> getPersonsWithoutSecret(){
