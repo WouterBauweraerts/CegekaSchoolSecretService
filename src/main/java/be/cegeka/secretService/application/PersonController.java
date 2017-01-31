@@ -22,23 +22,16 @@ public class PersonController {
     @RequestMapping(method = RequestMethod.GET)
     public
     @ResponseBody
-    List<Person> getUsers() {
+    List<Person> getPersons() {
         return personService.getAllPersons();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public
     @ResponseBody
-    void addUser(@RequestParam(value = "lastName", required = true) String firstName,
-                 @RequestParam(value = "firstName", required = true) String lastName) {
+    void addUser(@RequestParam(value = "last name", required = true) String firstName,
+                 @RequestParam(value = "first name", required = true) String lastName) {
         personService.addPerson(firstName,lastName);
-    }
-
-    @RequestMapping(value = "/getEncryptedPerson", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    String getEnryptedPerson(String firstName, String lastName){
-        return personService.getEncryptedPersonString(firstName, lastName);
     }
 
 }
